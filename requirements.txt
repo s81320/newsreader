@@ -2,11 +2,11 @@ pandas
 requests
 newspaper3k
 beautifulsoup4
-scikit-learn
 os
 sklearn
 re
 textblob_de 
 glob
 matplotlib
+json
 
