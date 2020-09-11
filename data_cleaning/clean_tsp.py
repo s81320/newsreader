@@ -92,7 +92,7 @@ def clean_up(path_to_folder, date_for_imputing):
 	cleaning_report['ads removed']=remove_ad_ctd
 	#print("remove files : " , unwanted_files)
 	cleaning_report['files not clean'] = len(unwanted_files)
-	cleaning_report['files removed reasons'] = [unwanted_files[k][1] for k in range(len(unwanted_files))]
+	cleaning_report['files bot clean reasons'] = [unwanted_files[k][1] for k in range(len(unwanted_files))]
 	cleaning_report['dates imputed']= len(impute_date_count)
 	
 	return(cleaning_report)

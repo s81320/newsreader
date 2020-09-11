@@ -92,6 +92,7 @@ def get_content(path_to_link_file , file_number , path_to_output_folder):
 			keep['paper'] = 'tagesspiegel'
 			keep['id'] = link[-13:-5]
 			keep['text'] = article.text
+			keep['image'] = article.top_image
 
 			json_txt = json.dumps(keep, indent=4)
 			filename=os.path.join(path_to_output_folder, filename + ".json")
