@@ -9,4 +9,4 @@ textblob_de
 glob
 matplotlib
 json
-
+pyttsx3
