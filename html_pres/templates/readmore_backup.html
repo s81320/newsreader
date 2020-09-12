@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>articles in selected cluster</title>
+</head>
+<body>
+	<h1>Articles in this cluster</h1>
+<table>
+    <TR>
+        {% for name in col_names %}
+        <TD>{{name}}</TD>
+        {% endfor %}
+     </TR>
+{% for item in items %}
+<TR>
+   <TD class="c1">{{item.file_name}}</TD> 
+   <TD class="c2"><a href="/article/{{item.file_name}}">{{item.title}}</a></TD>
+   <TD class="c3"><img src={{item.image}} width=200></TD>
+   <TD class="c4">{{item.description}}</TD>
+   <TD class="c5">{{item.cluster}}</TD>
+</TR>
+{% endfor %}
+</table>
+</body>
