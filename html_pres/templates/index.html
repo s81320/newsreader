@@ -1,42 +1,17 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<title>Select Cluster</title>
-{% endblock %}
 
 {% block body %}
+<h2>Select cluster, please</h2>
 
-<div class="wordcloud">
-    <h1 style="text-align: center">Select cluster</h1>
-<a href="/readmore/0" target="_self">     
-    <img src="{{url_for('static', filename='image_cluster0.png')}}" 
-	alt="Cluster 0"          
-	style="border: 0;">
+<div class="wordcloud"></div>
+{{% for c in cluster %}}
+<a href="/readmore/c[1]" target="_self">     
+    <img src="{{url_for('static', filename=c[0])}}" 
+	alt="Cluster {{c[1]}}"          
+	style="border: 5;">
 </a> 
-
-<a href="/readmore/1" target="_self">
-	<img src="{{url_for('static', filename='image_cluster1.png')}}"        
-	alt="Cluster 1"          
-	style="border: 0;">
-</a> 
-
-<a href="/readmore/2" target="_self">
-	<img src="{{url_for('static', filename='image_cluster2.png')}}"         
-	alt="Cluster 2"          
-	style="border: 0;">
-</a> 
-
-<a href="/readmore/3" target="_self">
-	<img src="{{url_for('static', filename='image_cluster3.png')}}"         
-	alt="Cluster 3"          
-	style="border: 0;">
-</a> 
-
-<a href="/readmore/4" target="_self">  
-	<img src="{{url_for('static', filename='image_cluster4.png')}}" 
-	alt="Cluster 4"          
-	style="border: 0;">
-</a> 
+{{% endfor %}}
 </div>
 
 

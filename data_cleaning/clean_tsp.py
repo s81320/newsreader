@@ -97,6 +97,25 @@ def clean_up(path_to_folder, date_for_imputing):
 	
 	return(cleaning_report)
 
+def impute_description(path_to_folder):
+	for _, _, f in os.walk(path_to_folder):
+		for file in f:
+			if file.endswith(".json"):
+				#print(file)
+				filename=os.path.join(path_to_folder, file)
+				#filename = '../data-acquisition/00530.json'
+				with open(filename , 'r') as myfile:
+					data=myfile.read()
+
+				# parse file into dict
+				article = json.loads(data)
+
+				if 'description' not in list(article.keys()):
+					article['description']=article['title']
+
+
+
+
 if __name__ == "__main__":
 	report = clean_up("../tagesspiegel-2020-09-05","2020-09-09")
 	print(report)

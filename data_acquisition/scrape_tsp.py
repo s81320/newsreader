@@ -68,6 +68,8 @@ def select_new_links(scraped_file , bestands_file = "data_acquisition/links-tsp-
 			if(line[-14:-1] in ids_new):
 				write_file.write(line)
 
+	print('got ' + str(len(ids_scraped)) + ' links. \n' + 'wrote ' + str(len(ids_new)) + ' links to ' + new_file)
+
 def get_content(path_to_link_file , file_number , path_to_output_folder):
 	assert type(file_number) == int, "second argument to get_content should be an integer."
 	#with open("../data-acquisition/links-tsp-2020-07-14-new.txt" , "r") as link_file :

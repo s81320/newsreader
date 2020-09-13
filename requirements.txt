@@ -1,7 +1,9 @@
 pandas
 requests
 newspaper3k
+newspaper
 beautifulsoup4
+bs4
 os
 sklearn
 re
@@ -9,4 +11,11 @@ textblob_de
 glob
 matplotlib
 json
+pyttsx3
+urllib.request
+datetime
+time
+sys
+json
+flask
 pyttsx3

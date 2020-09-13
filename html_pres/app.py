@@ -3,18 +3,26 @@ import pyttsx3
 import pandas as pd
 import json
 import os.path
+import sys
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # how many clusters are there? 
+    try:
+        K = sys.argv[1]
+        print(range(int(K)))
+    except:
+        print('Argument missing: Number of clusters. Make it an integer, please.')
+
+    return render_template('index.html', cluster=[['image_cluster'+str(k)+'.png', k] for k in range(int(K))])
 
 @app.route('/article/<filename>')
 def article(filename):
     fn = f'{int(filename):05}'
     if os.path.isfile('html_pres/static/'+fn+'.mp3'):
-        print ("File exist")
+        print ("mp3 file exist")
     else:
         # get article text
         fn1 = 'articles_02/'+fn+'-clean.json'
