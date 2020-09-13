@@ -15,6 +15,10 @@ https://scikit-learn.org/stable/auto_examples/model_selection/plot_randomized_se
 
 https://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html#sphx-glr-auto-examples-model-selection-grid-search-text-feature-extraction-py
 
+get access to what happens inside a pipeline
+
+https://stackoverflow.com/questions/52759118/how-to-return-a-dataframe-from-sklearn-tfidf-vectorizer-within-pipeline
+
 # web dev
 ## flask
 
