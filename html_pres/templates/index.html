@@ -5,13 +5,13 @@
 <h2>Select cluster, please</h2>
 
 <div class="wordcloud">
-{{% for c in cluster %}}
-<a href="/readmore/c[1]" target="_self">     
+{% for c in cluster %}
+<a href="/readmore/{{c[1]}}" target="_self">     
     <img src="{{url_for('static', filename=c[0])}}" 
 	alt="Cluster {{c[1]}}"          
 	style="border: 5;">
 </a> 
-{{% endfor %}}
+{% endfor %}
 </div>
 
 
