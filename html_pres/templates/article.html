@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<title>reading article</title>
-{% endblock %}
+
 
 {% block body %}
-<h1>{{source}}</h1>
+<h2>reading article {{source}}</h2>
 <audio controls>
     <source src={{url_for('static', filename=source)}} type="audio/mp3">
 </audio>
