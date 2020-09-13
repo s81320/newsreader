@@ -9,8 +9,16 @@ https://kavita-ganesan.com/how-to-use-countvectorizer/
 
 https://kavita-ganesan.com/text-preprocessing-tutorial/
 
+code examples from sklearn for HPO, Pipelines, ...
+
+https://scikit-learn.org/stable/auto_examples/model_selection/plot_randomized_search.html#sphx-glr-auto-examples-model-selection-plot-randomized-search-py
+
+https://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html#sphx-glr-auto-examples-model-selection-grid-search-text-feature-extraction-py
+
 # web dev
 ## flask
+
+https://github.com/jakerieger/FlaskIntroduction (well done.)
 
 https://pythonspot.com/flask-web-forms/
 
