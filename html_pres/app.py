@@ -12,7 +12,6 @@ def index():
     # how many clusters are there? 
     try:
         K = sys.argv[1]
-        print(range(int(K)))
     except:
         print('Argument missing: Number of clusters. Make it an integer, please.')
 
