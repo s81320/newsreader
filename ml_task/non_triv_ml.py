@@ -13,12 +13,15 @@ import math
 import json
 
 
-def preprocess(text):
+def preprocess(text, stoppwords=[]):
     #print(text)
     a = text.lower() # lower cases only
     b = re.sub("(\\W|\\d)"," ",a) #remove non-ascii and digits
     blob = TextBlobDE(b)
-    return(blob.words.lemmatize()) # lemmatize for german
+    c = list(blob.words.lemmatize())
+	# remove if it is stopword or a short word (1 or 2 letters)
+    d=[w for w in c if not (w in stoppwords) or len(w)<3]
+    return(' '.join([w for w in c if not (w in stoppwords or len(w)<3)]))
 
 
 def read_articles_transform_to_df (path_to_text_files='articles_02/*clean.json', debug=False):
@@ -30,20 +33,21 @@ def read_articles_transform_to_df (path_to_text_files='articles_02/*clean.json',
 	n = len(file_list)
 	print(n , "files to work with.")
 	if debug==True:
-		n_restrict = 50
+		n_restrict = 30
 		print('debug mode, working with a subset of ' + str(n_restrict) + ' files.')
 		n = n_restrict
         
 	#list_of_articles = []
-	X = pd.DataFrame(columns=['file','file_name','title','text','description','date','image'])
+	X = pd.DataFrame(columns=['file','file_name','title','text','description','image'])
 
 	for i in range(n):
 		if debug:
 			#print('*** '+str(i)+' ***' + file_list[i])
 			pass
-		with open (file_list[i]) as file:
-			article = json.loads(file.read())
-		X=X.append({'file':file_list[i] , 'file_name':article['text-link'], 'text':article['text'], 'title':article['title'], 'description':article['description'], 'date':article['publish-date'], 'image':article['image']}, ignore_index=True)
+		if file_list[i].endswith('.json'):
+			with open (file_list[i]) as file:
+				article = json.loads(file.read())
+			X=X.append({'file':file_list[i] , 'file_name':article['text-link'], 'text':article['text'], 'title':article['title'], 'description':article['description'], 'image':article['image']}, ignore_index=True)
 	return(X)
 
 def enthropy(pv):
@@ -65,3 +69,4 @@ def evaluate_cluster(km_object):
 
 if __name__ == "__main__":
 	print('import me (non_triv_ml), call my functions.')
+	# preprocess('Ich bin a du.')

@@ -11,11 +11,12 @@ app = Flask(__name__)
 def index():
     # how many clusters are there? 
     try:
-        K = sys.argv[1]
+        K = int(sys.argv[1])
+        return render_template('index.html', cluster=[['image_cluster'+str(k)+'.png', k] for k in range(K)])
     except:
         print('Argument missing: Number of clusters. Make it an integer, please.')
-
-    return render_template('index.html', cluster=[['image_cluster'+str(k)+'.png', k] for k in range(int(K))])
+        return 'nothing to show, K went missing.'
+    
 
 @app.route('/article/<filename>')
 def article(filename):
